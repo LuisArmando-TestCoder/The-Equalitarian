@@ -1,4 +1,17 @@
-import functions from "./functions";
+// import functions from "./functions";
+
+/**
+ * Todo
+ * execute functions to prove identities of each and find them
+ * - functionArguments
+ * - functionExpressions
+ * - recursive expressions and arguments in nonNestedFunctions
+ * and argumentList
+ * 
+ * replace identities and repeat process until 
+ * infinite recurssion is found or no further simplification is possible
+ * and create a tree out of each transformation path
+ */
 
 function getSingleLineStringifiedFunction(func: Function) {
   return func
@@ -65,7 +78,7 @@ const exampleCallback = (a: number, b: number, c: string): string => {
 
 const result = extractFromFunction(exampleCallback);
 
-await Deno.writeTextFile("./log.txt",
+await Deno.writeTextFile("./logs/equa_0.txt",
   JSON.stringify(result, null, 2),
 );
 console.log(result)
