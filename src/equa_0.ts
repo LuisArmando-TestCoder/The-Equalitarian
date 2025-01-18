@@ -1,3 +1,5 @@
+import functions from "./functions";
+
 function getSingleLineStringifiedFunction(func: Function) {
   return func
     .toString()
@@ -63,7 +65,7 @@ const exampleCallback = (a: number, b: number, c: string): string => {
 
 const result = extractFromFunction(exampleCallback);
 
-await Deno.writeTextFile("./log.txt", 
-  JSON.stringify(result, null, 2), 
+await Deno.writeTextFile("./log.txt",
+  JSON.stringify(result, null, 2),
 );
 console.log(result)
