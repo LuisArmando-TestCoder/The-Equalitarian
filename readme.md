@@ -3,7 +3,7 @@
 ### A tree of all possible aritmethic paths
 **I want identities to by found by a process of continuous automatic transformations,**
 **and then pick the tip of the tree that I like the most from whatever generated branch,**
-**making the Math Homework make itself and all sorts of different ways**
+**making the Math Homework make itself in all sorts of different ways**
 
 this command
 ```bash
