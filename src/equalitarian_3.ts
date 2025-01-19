@@ -8,7 +8,8 @@ import { simplify, evaluate } from "npm:mathjs";
 /***************************************************
  * Ejemplo de uso
  ***************************************************/
-const expression = "cos(x) ^ 2 + sin(x) ^ 2";
+const expression = "cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2";
+// or just try "1" and find out
 const originalAST: ParsedNode = mathParser.parse(expression);
 
 // console.log("=== AST Original ===");
