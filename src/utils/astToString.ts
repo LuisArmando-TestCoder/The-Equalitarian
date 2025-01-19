@@ -14,15 +14,15 @@ export function astToString(ast: any): string {
             const args = ast.args.map(astToString);
             switch (opName) {
                 case "add":
-                    return `(${args.join(" + ")})`;
+                    return `${args.join(" + ")}`; // used to be surrounded by ()
                 case "sub":
-                    return `(${args.join(" - ")})`;
+                    return `${args.join(" - ")}`;
                 case "mul":
-                    return `(${args.join(" * ")})`;
+                    return `${args.join(" * ")}`;
                 case "div":
-                    return `(${args[0]} / ${args[1]})`;
+                    return `${args[0]} / ${args[1]}`;
                 case "pow":
-                    return `(${args[0]} ^ ${args[1]})`;
+                    return `${args[0]} ^ ${args[1]}`;
                 default:
                     return `${opName}(${args.join(", ")})`;
             }
