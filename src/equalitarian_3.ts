@@ -3,6 +3,7 @@ import { transformAST } from "./utils/transformAST.ts";
 import { bidirectionalParsedIdentitiesMap } from "./utils/bidirectionalIdentities.ts";
 import { ParsedNode } from "./utils/types.ts";
 import mathParser from "npm:math-parser";
+import { simplify, evaluate } from "npm:mathjs";
 
 /***************************************************
  * Ejemplo de uso
@@ -17,4 +18,13 @@ const transformedAST = transformAST(originalAST, bidirectionalParsedIdentitiesMa
 
 console.log("\n=== AST Transformado ===");
 console.log(JSON.stringify(transformedAST, null, 2));
-console.log(`${expression} transforms into ${astToString(transformedAST)}`);
+
+const expressionFromAST = astToString(transformedAST);
+
+console.log(`${expression} transforms into ${expressionFromAST}`);
+
+/**
+ * the following simplify doesn't work, so I better keep working on this,
+ * because I need to make THE tree of all possible simplifications (or cyclic transformations)
+ *  */ 
+// console.log(`expression ${expressionFromAST} simplified is ${simplify(expressionFromAST)}`)
