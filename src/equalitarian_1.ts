@@ -78,7 +78,7 @@ const exampleCallback = (a: number, b: number, c: string): string => {
 
 const result = extractFromFunction(exampleCallback);
 
-await Deno.writeTextFile("./logs/equa_0.txt",
+await Deno.writeTextFile("./logs/equa_1.txt",
   JSON.stringify(result, null, 2),
 );
 console.log(result)

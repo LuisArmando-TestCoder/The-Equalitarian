@@ -10,11 +10,11 @@ import mathParser from "npm:math-parser";
 const expression = "1";
 const originalAST: ParsedNode = mathParser.parse(expression);
 
-// console.log("=== AST Original ===");
-// console.log(JSON.stringify(originalAST, null, 2));
+console.log("=== AST Original ===");
+console.log(JSON.stringify(originalAST, null, 2));
 
 const transformedAST = transformAST(originalAST, bidirectionalParsedIdentitiesMap);
 
 console.log("\n=== AST Transformado ===");
-// console.log(JSON.stringify(transformedAST, null, 2));
+console.log(JSON.stringify(transformedAST, null, 2));
 console.log(`${expression} transforms into ${astToString(transformedAST)}`);
