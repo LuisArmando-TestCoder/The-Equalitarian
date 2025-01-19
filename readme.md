@@ -5,7 +5,7 @@
 
 hear me out
 ```bash
-deno run src/equalitarian_3.ts
+deno run src/equalitarian.ts
 ```
 
 this thing above can do stuff like
