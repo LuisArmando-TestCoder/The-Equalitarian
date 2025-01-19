@@ -5,7 +5,13 @@ import { ParsedNode } from "./utils/types.ts";
 import mathParser from "npm:math-parser";
 // import { simplify, evaluate } from "npm:mathjs";
 
-const expression = "cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2";
+const expression = prompt(`
+  Type as: cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2
+  
+  Or just type a constant like 1
+  
+  Enter a mathematical expression:`);
+
 // or just try "1" and find out
 const originalAST: ParsedNode = mathParser.parse(expression);
 
@@ -26,7 +32,7 @@ console.log(`
 
   ${expressionFromAST}
 
-  and back into
+  and back to
 
   ${
     astToString(transformAST(transformedAST, bidirectionalParsedIdentitiesMap))
