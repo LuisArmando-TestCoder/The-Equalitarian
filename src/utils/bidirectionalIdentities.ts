@@ -5,8 +5,8 @@ import { ParsedNode } from "./types.ts";
 export const bidirectionalIdentities = getBidirectionalObject(identities);
 export const bidirectionalParsedIdentitiesMap = getBidirectionalParsedIdentitiesMap(identities);
 
-function getBidirectionalParsedIdentitiesMap(identities: { [index: string]: string }): Map<string, ParsedNode> {
-    const bidirectionalParsedIdentitiesMap = new Map() as Map<string, ParsedNode>;
+function getBidirectionalParsedIdentitiesMap(identities: { [index: string]: string }): Map<ParsedNode, ParsedNode> {
+    const bidirectionalParsedIdentitiesMap = new Map() as Map<ParsedNode, ParsedNode>;
 
     Object.entries(identities).forEach(([a, b]) => {
         try {
