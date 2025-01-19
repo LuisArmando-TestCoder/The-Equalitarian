@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "math-parser": "npm:math-parser@^0.12.1",
+    "mathjs": "npm:mathjs@^14.0.1"
+  }
+}

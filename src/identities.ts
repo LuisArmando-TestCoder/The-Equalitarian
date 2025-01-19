@@ -1,4 +1,7 @@
-export default getBidirectionalObject({
+import mathParser from "npm:math-parser";
+
+// every commented identity contains non-recognaised symbols by the parser, but recognised by math.js
+export const identities = {
     "sum(k, k, 1, n)": "(n * (n + 1)) / 2",
     "sum(k^2, k, 1, n)": "(n * (n + 1) * (2 * n + 1)) / 6",
     "sum(k^3, k, 1, n)": "((n * (n + 1)) / 2)^2",
@@ -17,7 +20,7 @@ export default getBidirectionalObject({
     "sum(ln(k), k, 1, n)": "n * ln(n) - n + O(ln(n))",
     "sum(2k - 1, k, 1, n)": "n^2",
     "sum(2k, k, 1, n)": "n * (n + 1)",
-    "sum(a * r^(k - 1), k, 1, n)": "a * (1 - r^n) / (1 - r), r ≠ 1",
+    // "sum(a * r^(k - 1), k, 1, n)": "a * (1 - r^n) / (1 - r), r ≠ 1",
     "sum(1 / (k + 1), k, 1, n)": "HarmonicNumber(n) - 1 / (n + 1)",
     "cos(x)^2 + sin(x)^2": "1",
     "1 + tan(x)^2": "sec(x)^2",
@@ -40,8 +43,8 @@ export default getBidirectionalObject({
     "d/dx(csc(x))": "-csc(x) * cot(x)",
     "d/dx(sec(x))": "sec(x) * tan(x)",
     "d/dx(cot(x))": "-csc(x)^2",
-    "integral(x^n, x)": "(x^(n + 1)) / (n + 1), n ≠ -1",
-    "integral(1 / x, x)": "ln|x|",
+    // "integral(x^n, x)": "(x^(n + 1)) / (n + 1), n ≠ -1",
+    // "integral(1 / x, x)": "ln|x|",
     "integral(e^x, x)": "e^x",
     "integral(sin(x), x)": "-cos(x)",
     "integral(cos(x), x)": "sin(x)",
@@ -55,15 +58,27 @@ export default getBidirectionalObject({
     "cot^2(x)": "csc^2(x) - 1",
     "sec^2(x)": "1 + tan^2(x)",
     "csc^2(x)": "1 + cot^2(x)"
+};
+
+export const bidirectionalIdentities = getBidirectionalObject(identities);
+
+export const bidirectionalParsedIdentitiesMap = new Map();
+
+Object.entries(identities).forEach(([a, b]) => {
+    // console.log(a)
+    const A = mathParser.parse(a);
+    // console.log(b)
+    const B = mathParser.parse(b);
+
+    bidirectionalParsedIdentitiesMap.set(A, B)
+    bidirectionalParsedIdentitiesMap.set(B, A)
 });
 
 function getBidirectionalObject(input: Record<string, string>): Record<string, string> {
     const result: Record<string, string> = {};
 
     for (const [key, value] of Object.entries(input)) {
-        // Add the original key-value pair
         result[key] = value;
-        // Add the reversed key-value pair
         result[value] = key;
     }
 
