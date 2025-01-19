@@ -1,7 +1,7 @@
 # The Equalitarian
 
-### A tree of all possible aritmethic paths **(in progress)**
-**(avoiding infinite recurssion)**
+### A tree of all possible aritmethic paths
+**(I want identities to by found by a process of continuous automatic transformations)**
 
 hear me out
 ```bash
