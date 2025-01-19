@@ -3,11 +3,8 @@ import { transformAST } from "./utils/transformAST.ts";
 import { bidirectionalParsedIdentitiesMap } from "./utils/bidirectionalIdentities.ts";
 import { ParsedNode } from "./utils/types.ts";
 import mathParser from "npm:math-parser";
-import { simplify, evaluate } from "npm:mathjs";
+// import { simplify, evaluate } from "npm:mathjs";
 
-/***************************************************
- * Ejemplo de uso
- ***************************************************/
 const expression = "cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2";
 // or just try "1" and find out
 const originalAST: ParsedNode = mathParser.parse(expression);
@@ -22,11 +19,19 @@ const transformedAST = transformAST(originalAST, bidirectionalParsedIdentitiesMa
 
 const expressionFromAST = astToString(transformedAST);
 
-console.log(`${expression}\n\ntransforms into\n\n${
-  expressionFromAST
-}\n\nand back into\n\n${
-  astToString(transformAST(transformedAST, bidirectionalParsedIdentitiesMap))
-}`);
+console.log(`
+  ${expression}
+    
+  transforms into
+
+  ${expressionFromAST}
+
+  and back into
+
+  ${
+    astToString(transformAST(transformedAST, bidirectionalParsedIdentitiesMap))
+  }
+`);
 
 /**
  * the following simplify doesn't work, so I better keep working on this,
