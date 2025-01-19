@@ -1,7 +1,8 @@
 # The Equalitarian
 
 ### A tree of all possible aritmethic paths
-**(I want identities to by found by a process of continuous automatic transformations)**
+**I want identities to by found by a process of continuous automatic transformations**
+**And then pick the tip of the tree that I like the most from whatever generated branch**
 
 hear me out
 ```bash
