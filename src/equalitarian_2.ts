@@ -1,8 +1,10 @@
 import { simplify, evaluate } from "npm:mathjs";
-import mathParser from "npm:math-parser";
-import { bidirectionalParsedIdentitiesMap } from "./identities.ts";
+// import mathParser from "npm:math-parser";
+import { bidirectionalParsedIdentitiesMap } from "./utils/bidirectionalIdentities.ts";
 
-console.log(bidirectionalParsedIdentitiesMap)
+[...bidirectionalParsedIdentitiesMap.entries()].forEach(
+    ([key, value], index) => console.log(JSON.stringify(value), " is the same as ", JSON.stringify(key))
+);
 
 // if a + b - c == d then g/2 + g/2 + b - c == d
 const scope = { x: 17 };

@@ -1,5 +1,3 @@
-import mathParser from "npm:math-parser";
-
 // every commented identity contains non-recognaised symbols by the parser, but recognised by math.js
 export const identities = {
     "sum(k, k, 1, n)": "(n * (n + 1)) / 2",
@@ -59,28 +57,3 @@ export const identities = {
     "sec^2(x)": "1 + tan^2(x)",
     "csc^2(x)": "1 + cot^2(x)"
 };
-
-export const bidirectionalIdentities = getBidirectionalObject(identities);
-
-export const bidirectionalParsedIdentitiesMap = new Map();
-
-Object.entries(identities).forEach(([a, b]) => {
-    // console.log(a)
-    const A = mathParser.parse(a);
-    // console.log(b)
-    const B = mathParser.parse(b);
-
-    bidirectionalParsedIdentitiesMap.set(A, B)
-    bidirectionalParsedIdentitiesMap.set(B, A)
-});
-
-function getBidirectionalObject(input: Record<string, string>): Record<string, string> {
-    const result: Record<string, string> = {};
-
-    for (const [key, value] of Object.entries(input)) {
-        result[key] = value;
-        result[value] = key;
-    }
-
-    return result;
-}
