@@ -23,4 +23,4 @@ and back into
 cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2
 ```
 
-so far the supported expression are within the math-parser boundaries
+so far, supported expressions are within the math-parser boundaries
