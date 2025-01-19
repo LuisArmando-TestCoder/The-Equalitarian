@@ -3,13 +3,14 @@
 ### A tree of all possible aritmethic paths
 **I want identities to by found by a process of continuous automatic transformations**
 **And then pick the tip of the tree that I like the most from whatever generated branch**
+**Making the Math Homework make itself and all sorts of different ways**
 
-hear me out
+this command
 ```bash
 deno run src/equalitarian.ts
 ```
 
-this thing above can do stuff like
+can make transformations such as
 ```ts
 cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2
 
