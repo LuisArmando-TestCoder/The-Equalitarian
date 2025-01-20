@@ -16,10 +16,9 @@ export const identities = {
     "sum(k^3 - k^2, k, 1, n)": "(n * (n + 1) * (2n^2 - 1)) / 6",
     "sum(a + (k - 1) * d, k, 1, n)": "n * (a + l) / 2",
     "sum(ln(k), k, 1, n)": "n * ln(n) - n + O(ln(n))",
+    "sum(1 / (k + 1), k, 1, n)": "HarmonicNumber(n) - 1 / (n + 1)",
     "sum(2k - 1, k, 1, n)": "n^2",
     "sum(2k, k, 1, n)": "n * (n + 1)",
-    // "sum(a * r^(k - 1), k, 1, n)": "a * (1 - r^n) / (1 - r), r ≠ 1",
-    "sum(1 / (k + 1), k, 1, n)": "HarmonicNumber(n) - 1 / (n + 1)",
     "cos(x)^2 + sin(x)^2": "1",
     "1 + tan(x)^2": "sec(x)^2",
     "1 + cot(x)^2": "csc(x)^2",
@@ -41,8 +40,6 @@ export const identities = {
     "d/dx(csc(x))": "-csc(x) * cot(x)",
     "d/dx(sec(x))": "sec(x) * tan(x)",
     "d/dx(cot(x))": "-csc(x)^2",
-    // "integral(x^n, x)": "(x^(n + 1)) / (n + 1), n ≠ -1",
-    // "integral(1 / x, x)": "ln|x|",
     "integral(e^x, x)": "e^x",
     "integral(sin(x), x)": "-cos(x)",
     "integral(cos(x), x)": "sin(x)",
@@ -55,5 +52,12 @@ export const identities = {
     "tan^2(x)": "sec^2(x) - 1",
     "cot^2(x)": "csc^2(x) - 1",
     "sec^2(x)": "1 + tan^2(x)",
-    "csc^2(x)": "1 + cot^2(x)"
+    "csc^2(x)": "1 + cot^2(x)",
+
+
+
+
+    // "sum(a * r^(k - 1), k, 1, n)": "a * (1 - r^n) / (1 - r), r ≠ 1",
+    // "integral(x^n, x)": "(x^(n + 1)) / (n + 1), n ≠ -1",
+    // "integral(1 / x, x)": "ln|x|",
 };

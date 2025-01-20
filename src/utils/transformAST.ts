@@ -60,7 +60,12 @@ export function transformAST(node: ParsedNode, map: Map<ParsedNode, ParsedNode>)
         const keyNode = keyJSON as ParsedNode;
         if (structuresMatch(node, keyNode)) {
             return map.get(keyJSON)!;
-        }
+        } 
+        // what if this were from the ground up, instead of from top to bottom (in terms of scope)
+        // or both ways for all levels so the tree is constructed
+        // todo: 
+        // - group expressions
+        // - discard redundant ones such as x / 2 * 2 = x
     }
 
     if (node.args && node.args.length > 0) {
