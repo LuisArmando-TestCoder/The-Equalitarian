@@ -1,11 +1,8 @@
-import { astToString } from "./utils/astToString.ts";
-import { transformAST } from "./utils/transformAST.ts";
-import { bidirectionalParsedIdentitiesMap } from "./utils/bidirectionalIdentities.ts";
-import { ParsedNode } from "./utils/types.ts";
-import mathParser from "npm:math-parser";
-import { simplify } from "npm:mathjs";
 
 // todo: make variable name insensitive, but variable difference responsive
+
+import { transform } from "./utils/transform.ts";
+
 // what if I USE THE SIMPLER BASIC IDENTITIES
 const expression = prompt(`
   Type as: cos(x) ^ 2 + sin(x) ^ 2 * cos(x) ^ 2 + sin(x) ^ 2
@@ -16,31 +13,16 @@ const expression = prompt(`
   
   Enter a mathematical expression:`);
 
-// or just try "1" and find out
-const originalAST: ParsedNode = mathParser.parse(simplify(expression).toString());
-
-// console.log("=== AST Original ===");
-// console.log(JSON.stringify(originalAST, null, 2));
-
-const transformedAST = transformAST(originalAST, bidirectionalParsedIdentitiesMap);
-
-// console.log("\n=== AST Transformado ===");
-// console.log(JSON.stringify(transformedAST, null, 2));
-
-const expressionFromAST = astToString(transformedAST);
-
 console.log(`
   ${expression}
     
   transforms into
 
-  ${expressionFromAST}
+  ${transform(expression!)}
 
-  and back to
+  ${transform(transform(expression!))}
 
-  ${
-    astToString(transformAST(transformedAST, bidirectionalParsedIdentitiesMap))
-  }
+  ${transform(transform(transform(expression!)))}
 `);
 
 /**
