@@ -4,8 +4,8 @@ export function astToString(ast: any): string {
     switch (ast.type) {
         case "Number":
             return ast.value.toString();
-        case "Identifier":
-            return ast.name;
+        case "Identifier": 
+            return ast.name; // make it variable independent for constructive operations
         case "Apply":
             const operator = ast.op;
 
